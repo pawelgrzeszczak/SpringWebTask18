@@ -25,8 +25,17 @@ public class TaskController {
 
     @RequestMapping(method = RequestMethod.GET, value = "tasks/{taskId}")
     public TaskDto getTask(@PathVariable Long taskId) {
-        return new TaskDto(1L, "test title", "test_content");
+        return taskMapper.mapToTaskDto(service.getTask(taskId).orElseThrow(IllegalArgumentException::new));
+//        return new TaskDto(1L, "test title", "test_content");
     }
+
+
+//    @RequestMapping(method = RequestMethod.GET, value = "tasks/{taskId}")
+//    public TaskDto getTask(@PathVariable Long taskId) {
+//        return tasks.stream().filter(task -> task.getId() == taskId).findAny().orElseThrow(IllegalArgumentException::new);
+//    }
+
+
 
     @RequestMapping(method = RequestMethod.DELETE, value = "tasks/{taskId}")
     public void deleteTask(@PathVariable Long taskId) {
