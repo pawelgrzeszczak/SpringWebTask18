@@ -37,7 +37,7 @@ public class SimpleEmailService {
             mailMessage.setCc(mail.getToCc());
             LOGGER.info("Carbon copy has been added");
         } else {
-            LOGGER.info("Recipient has not been attached");
+            LOGGER.info("Carbon copy not included");
         }
 
         return mailMessage;
