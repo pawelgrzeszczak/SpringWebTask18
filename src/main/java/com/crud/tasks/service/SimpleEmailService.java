@@ -32,6 +32,14 @@ public class SimpleEmailService {
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
+
+        if (mail.getToCc() != null) {
+            mailMessage.setCc(mail.getToCc());
+            LOGGER.info("Carbon copy has been added");
+        } else {
+            LOGGER.info("Recipient has not been attached");
+        }
+
         return mailMessage;
     }
 }
