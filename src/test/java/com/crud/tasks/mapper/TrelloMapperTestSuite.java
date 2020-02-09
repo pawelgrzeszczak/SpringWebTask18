@@ -2,19 +2,16 @@ package com.crud.tasks.mapper;
 
 import com.crud.tasks.domain.*;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Assert;
+import org.springframework.boot.test.context.SpringBootTest;
 
-@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class TrelloMapperTestSuite {
 
-    @InjectMocks
-    private TrelloMapper mapper;
+    private TrelloMapper mapper = new TrelloMapper();
 
     @Test
     public void testMapToBoards() {
