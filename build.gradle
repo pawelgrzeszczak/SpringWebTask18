@@ -40,4 +40,5 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-mail:2.2.2.RELEASE')
 //
 //    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    compile('com.google.code.gson:gson:2.8.2')
 }
