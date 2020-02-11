@@ -107,7 +107,6 @@ public class TaskControllerTest {
 
         // When & Then
         mockMvc.perform(put("/v1/task/updateTask")
-                .param("taskId", "1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(jsonContent))
@@ -130,7 +129,6 @@ public class TaskControllerTest {
 
         // When & Then
         mockMvc.perform(post("/v1/task/createTask")
-                .param("taskId", "1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(jsonContent))
