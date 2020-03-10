@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/trello")
 public class TrelloController {
@@ -20,12 +20,22 @@ public class TrelloController {
 //    private TrelloService trelloService;
     private TrelloFacade trelloFacade;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getTrelloBoards")
+    @RequestMapping(method = RequestMethod.GET, value = "/boards")
+    public List<TrelloBoardDto> getTrelloBoards() {
+        return trelloFacade.fetchTrelloBoards();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/cards")
+    public CreatedTrelloCardDto createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
+        return trelloFacade.createCard(trelloCardDto);
+    }
+
+/*    @RequestMapping(method = RequestMethod.GET, value = "/getTrelloBoards")
     public List<TrelloBoardDto> getTrelloBoards() {
 //        return trelloClient.getTrelloBoards();
 //        return trelloService.fetchTrelloBoards();
         return trelloFacade.fetchTrelloBoards();
-    }
+    }*/
 
 //    @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
 //    public void getTrelloBoards() {
@@ -51,11 +61,11 @@ public class TrelloController {
 //                .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
 //    }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/createTrelloCard")
+/*    @RequestMapping(method = RequestMethod.POST, value = "/createTrelloCard")
     public CreatedTrelloCardDto createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
 
 //        return trelloClient.createNewCard(trelloCardDto);
 //        return trelloService.createdTrelloCard(trelloCardDto);
         return trelloFacade.createCard(trelloCardDto);
-    }
+    }*/
 }
